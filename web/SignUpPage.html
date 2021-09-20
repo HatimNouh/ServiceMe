@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .item3 { grid-area: main; }
+            .item4 { grid-area: right; }
+            .item5 { grid-area: footer; }
+
+            .grid-container {
+                display: grid;
+                grid-template-areas:
+                    'main main main right right right'
+                    'footer footer footer footer footer footer';
+                grid-gap: 1px;
+                background-color: #fff;
+                padding: 10px;
+            }
+
+            .grid-container > div {
+                background-color: rgba(255, 255, 255, 0.8);
+
+                padding: 10px 0;
+
+            }
+            body{
+                background: #e9eaea;
+                font-family: roboto;
+                user-select: none;
+            }
+            .container{
+                width: 700px;
+                margin: 40px auto;
+                height:450px;
+                border-radius: 45px;
+                overflow-x: hidden;
+                overflow-y:scroll;
+            }
+            .container::-webkit-scrollbar {
+                width: 20px;
+            }
+            .container::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 10px grey;
+                border-radius: 10px;
+            }
+            .container::-webkit-scrollbar-thumb {
+                background: #34b3a0; 
+                border-radius: 10px;
+            }
+            .container::-webkit-scrollbar-thumb:hover {
+                background: green; 
+            }
+            .signup,
+            .login{
+                width: 50%;
+                background: #fff;
+                float: left;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                cursor: pointer;
+                text-transform: uppercase;
+            }
+            .signup-form,
+            .login-form{
+                background: #fff;
+                padding: 40px;
+                border: 2px solid #e9eaea ;
+                clear: both;
+                width:auto;
+                box-sizing: border-box;
+                height:fit-content;
+            }
+            .input{
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+                margin-bottom: 25px;
+                border: 2px solid #e9eaea;
+                color: #3e3e40;
+                font-size: 14px;
+                outline: none;
+            }
+            .input:focus{
+                border: 2px solid #34b3a0;
+            }
+            .btn{
+                width: 100%;
+                background: #34b3a0;
+                height: 60px;
+                line-height: 60px;
+                color: #fff;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: bold;
+                letter-spacing: 1px;
+                cursor: pointer;
+                margin-bottom: 30px;
+                border:#ffffff;
+
+
+            }
+            .btn:hover {
+                background-color: #45a049;
+            }
+
+            .span a{
+                text-decoration: none;
+                color: #000;
+            } 
+            .nav {
+                height: 50px;
+                width: 100%;
+                background-color: #34b3a0;
+                position: relative;
+            }
+            .nav > .nav-title {
+                display:inline;
+                color: #fff;
+                font-family: "Sofia",sans-serif;
+                font-size: 40px;
+                font-weight:600;
+                padding: 10px 10px 10px 10px;
+            }
+            .nav>.nav-title a:link {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            .nav>.nav-title  a:visited {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            .nav>.nav-title  a:hover {
+                color: #009900;
+                background-color: transparent;
+                text-decoration: underline;
+            }
+            .nav>.nav-title a:active {
+                color:#fff;
+                background-color: transparent;
+                text-decoration: underline;
+            }
+            .nav > .nav-links {
+                font-size: 25px;
+                display: inline-block;
+                float: right;
+            }
+            .nav .nav-links a.icon{                                     
+                display:inline-block;
+                margin-left: 80px;
+                margin-right: 10px;
+            }
+            .nav .nav-links a i{
+
+                padding: 7px;
+                margin-left: 5px;
+                background-color: #fff;
+                border-radius: 50px;
+            }
+            .navbar {
+                overflow: hidden;
+                background-color: #333;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+            .navbar a {
+                float:top;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            .navbar a:hover {
+                background: #f1f1f1;
+                color: black;
+            }
+            .navbar a.active {
+                background-color: #04AA6D;
+                color: white;
+            }
+            .hr { 
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 1em;
+                margin-left: auto;
+                margin-right: auto;
+                border-style: inset;
+                border-width: 1px;
+            } 
+            .form, p {
+                margin: 20px;
+            }
+            .p.note {
+                font-size: 1rem;
+                color: red;
+            }
+            .label {
+                width: 300px;
+                font-weight: bold;
+                display: inline-block;
+                margin-top: 20px;
+            }
+            .label span {
+                font-size: 1rem;
+            }
+            .label.error {
+                color: red;
+                font-size: 1rem;
+                display: block;
+                margin-top: 5px;
+            }
+            .label.error.fail-alert {
+                border: 2px solid red;
+                border-radius: 4px;
+                line-height: 1;
+                padding: 2px 0 6px 6px;
+                background: #ffe6eb;
+            }
+            .input.valid.success-alert {
+                border: 2px solid #4CAF50;
+                color: green;
+            }
+            .input.error, textarea.error {
+                border: 1px dashed red;
+                font-weight: 300;
+                color: red;
+            }
+
+        </style>
+        <title>Sign In Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> 
+        <script>
+            $(document).ready(function () {
+                $(".signup-form").hide();
+                $(".signup").css("background", "none");
+                $(".login").click(function () {
+                    $(".signup-form").hide();
+                    $(".login-form").show();
+                    $(".signup").css("background", "none");
+                    $(".login").css("background", "#fff");
+                });
+                $(".signup").click(function () {
+                    $(".signup-form").show();
+                    $(".login-form").hide();
+                    $(".login").css("background", "none");
+                    $(".signup").css("background", "#fff");
+                });
+
+
+                $("#basic_form").validate({
+                    errorClass: "error fail-alert",
+                    validClass: "valid success-alert",
+                    rules: {
+                        fname: {
+                            required: true,
+                            minlength: 3
+                        },
+                        NewEmail: {
+                            required: true,
+                            email: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        optradio: "required",
+                        Newpassword: {
+                            required: true,
+                            minlength: 5
+                        },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                        ConPassword: {
+                            required: true
+
+                        },
+                        Contact_number: {
+                            required: true,
+                            number: true,
+                            minlength: 10
+                        }
+                    },
+                    messages: {
+
+                        fname: {
+                            fname: "Name should be at least 5 characters"
+                        },
+                        email: {
+                            email: "The email should be in the format: abc@domain.tld"
+                        },
+                        NewEmail: {
+                            NewEmail: "The email should be in the format: abc@domain.tld"
+                        },
+
+                        Newpassword: {
+                            Newpassword: "Please enter your password correctly"
+                        },
+
+                        password: {
+                            password: "Please enter your password correctly"
+
+                        },
+                        ConPassword: {
+                            ConPassword: "Password does not match !"
+
+                        },
+                        Contact_number: {
+                            Contact_number: "Please enter your phone number correctly"
+                        }
+
+                    }
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="nav-title">
+                <a class="header" href="#">Service Me</a>
+            </div>
+            <div class="nav-links">
+                <a class="icon">
+                    <a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj7uLyAxuvyAhUJi1wKHVzKDFYQPAgI"> <i class="fa fa-twitter"></i></a>
+                    <a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj7uLyAxuvyAhUJi1wKHVzKDFYQPAgI"> <i class="fa fa-linkedin"></i></a>
+                    <a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj7uLyAxuvyAhUJi1wKHVzKDFYQPAgI"> <i class="fa fa-youtube"></i></a>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <form id="basic_form" neme="basic_form" action="basic_form" method="post">
+                <div class="login">Log In</div>
+                <div class="signup">Sign Up</div>
+                <div class="login-form">
+                    <p>
+                        <label for="email"><i class="fa fa-envelope"></i> Email </label>
+                        <input  id="email" name="email" placeholder="Email" class="input">
+                    </p>
+                    <p>
+                        <label for="password"><i class="fa fa-lock"></i> password</label>
+                        <input id="Newpassword" name="Newpassword" type="password" placeholder="Password" class="input required">
+                    </p>
+                    <label>
+                        <input type="checkbox"  name="LogInPro" id="LogInPro" > Log In as Provider
+                    </label>
+                    <hr>
+                    <button class="btn" type="submit" name="logIn" >log in</button>
+                </div>
+                <div class="signup-form">
+                    <div class="grid-container">
+                        <div class="item3">
+                            <p>
+                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                <input type="text" id="fname" name="fname" placeholder="John M. Doe" class="input"></p>
+                            <p><label for="email"><i class="fa fa-envelope"></i> Email </label>
+                                <input type="text" id="NewEmail" name="NewEmail" placeholder="john@example.com" class="input"></p>
+                            <p>
+                            <P>
+                                <label for="Contact_Number"><i class="fa fa-phone"></i>Contact Number</label>
+                                <input type="text" id="Contact_number" name="Contact_number" placeholder="+2776811..." class="input">
+
+                            </p>
+                        </div>
+                        <div class="item4" >
+                            <p>
+                                <label for="password"><i class="fa fa-lock"></i> Password</label>
+                                <input id="password" name="password" type="password" placeholder="password" class="input required">
+                            </p>
+                            <p>
+                                <label for="ConPassword"> <i class="fa fa-lock"></i>Confirm Password</label>
+                                <input type="password" placeholder="ConPassword" name="ConPassword" id="ConPassword" class="input required" data-rule-equalTo="#password">
+                            </p>
+
+
+                        </div>
+                        <div class="item5">
+                            <label>
+                                <input type="checkbox" name="Sign_UpPro" id="Sign_UpPro"> Sign Up as Provider
+                            </label>
+                            <hr>
+                            <button class="btn" type="submit" name="Create_account">Create account</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="navbar">
+            <a href="#" class="active">HatimNouh1997@Gmail.com</a>
+        </div>
+    </body>
+</html>     

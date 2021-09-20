@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Provider Description</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .header {
+                font-family: "Sofia",sans-serif;
+                padding: 5px;
+                background: #1abc9c;
+                box-shadow: 0 10px 15px #009999;
+                color: white;
+                border-radius: 20px;
+            }
+            /* Increase the font size of the heading */
+            .title {
+                font-family: "Sofia",sans-serif;
+                color: white;
+                font-size: 30px;
+                font-weight:600;
+                padding: 0px 10px 10px 10px;
+            }
+            .title:link{
+                color: whitesmoke;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            .footer {
+                padding: 5px;
+                background: #1abc9c;
+                box-shadow: 0 10px 15px #009999;
+                color: white;
+                border-radius: 20px;
+                text-align: center;
+                position:  fixed;
+                bottom: 0;
+                width: 100%;
+                height: 20px;
+                border-radius: 30px;
+            }
+            label {
+
+
+                position:relative;
+                margin: 0 -35px;
+                display: inline-block;
+                width: 250px;
+                height: 400px;
+                line-height: 30px;
+                color: #ddd;
+                font-size: 1em;             
+                box-shadow: 0 10px 6px -6px #777;
+                -webkit-transform: skew(-20deg) rotate(-20deg);
+                transform: skew(-20deg) rotate(-20deg);
+                -webkit-transition: .3s;
+                transition: .3s;
+                border-radius: 35px;
+            }
+            label:nth-of-type(1) {
+                background: #1abc9c;
+            }
+            label:nth-of-type(2) {
+                background: #1abc9c;
+            }
+            label:nth-of-type(3) {
+                background: #1abc9c;
+            }
+            label:nth-of-type(4) {
+                background: #1abc9c;
+            }
+            label:nth-of-type(5) {
+                background: #1abc9c;
+            }
+            input[type="radio"] {
+                display: none;
+            }
+            input[type="radio"]:checked ~ label {
+                -webkit-transform: skew(20deg) rotate(20deg);
+                transform: skew(20deg) rotate(20deg);
+            }
+            input[type="radio"]:checked + label {
+                margin: 0 50px;
+                -webkit-transform: none;
+                transform: none;
+                background: #f1c40f;
+            }
+            .card-slider{
+                margin: 60px auto;
+                text-align: center;
+                border-radius: 35px;
+
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+            }
+            html {
+                box-sizing: border-box;
+            }
+            *, *:before, *:after {
+                box-sizing: inherit;
+            }
+            .card {
+
+                margin: 1px;
+                border-radius: 35px;
+            }
+            .container {
+                display: none;
+                position: absolute;
+                width: 100%;
+                border-radius: 25px;
+                padding: 10px;
+                background: #1abc9c;
+                color: #000000;
+                border: 1px solid #1a1a1a;
+                font-size: 90%;
+
+
+            }
+
+            .card:hover .container {
+                opacity: 1;
+                display: block;
+            }
+
+
+            img{
+                width:100% ;
+                height: 100%;
+                border-radius: 45px;
+            }  
+            .p{
+
+            }
+            .checked {
+                color: orange;
+            }
+            
+        </style>
+        <script>
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <a class=" title" href="#">Service Me</a>
+        </div>
+        <form >
+
+            <div class="card-slider">
+
+                <input type="radio" id="1" name="sld"/>
+                <label for="1">
+
+                    <div class="card">
+
+                        <img src="images.jpg" alt="Jane">
+                        <h3>Jane Doe</h3>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <div class="container">
+
+                            <p>Some text that describes me lkbhhl4erfgfer abkonhbouihnoibhnouyhbnouyiboubo uyg uygb uybubi uy uygbuygiuygbiu ybiu y bu iuybiubiuybiuyb uborem ipsum ipsum lorem.</p>
+                        </div>
+                    </div>
+                </label>
+
+
+                <input type="radio" id="2" name="sld"/>
+                <label for="2">
+                    <div class="card">
+                        <img src="images.jpg" alt="Jane" >
+                        <h3>Jane Doe</h3>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <div class="container">
+
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        </div>
+                    </div>
+                </label>
+                <input type="radio" id="3" name="sld" checked/>
+                <label for="3">
+                    <div class="card">
+                        <img src="images.jpg" alt="Jane" ">
+                        <h3>Jane Doe</h3>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <div class="container">
+
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        </div>
+                    </div>
+                </label>
+                <input type="radio" id="4" name="sld"/>
+                <label for="4">
+                    <div class="card">
+                        <img src="images.jpg" alt="Jane" >
+                        <h3>Jane Doe</h3>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <div class="container">
+
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        </div>
+                    </div>
+                </label>
+                <input type="radio" id="5" name="sld"/>
+                <label for="5">
+                    <div class="card">
+                        <img src="images.jpg" alt="Jane" >
+                        <h3>Jane Doe</h3>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <div class="container">
+
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        </div>
+                    </div>
+                </label>
+
+            </div>
+
+        </form>
+        <div class="footer">
+            <h2></h2>
+        </div>
+    </body>
+</html>
